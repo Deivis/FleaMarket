@@ -1,0 +1,26 @@
+{
+  "name": "flea-market",
+  "version": "1.0.0",
+  "description": "A shopping cart application for used items using the pagar.me API as a payment service provider",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: sorry, this project is in construction\" && exit 1",
+    "test": "echo \"Error: no test specified. Sorry, this project is in construction\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deivis/FleaMarket.git"
+  },
+  "keywords": [
+    "pagar.me",
+    "react",
+    "redux",
+    "shoppingcart"
+  ],
+  "author": "Deivis C. W.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Deivis/FleaMarket/issues"
+  },
+  "homepage": "https://github.com/Deivis/FleaMarket#readme"
+}
