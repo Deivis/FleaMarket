@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Tests Home Render 1`] = `
+<div
+  className="home"
+>
+  <header
+    className="home__header"
+  >
+    <span
+      className="home__title"
+    >
+      Flea market
+    </span>
+  </header>
+  <div
+    className="home__content"
+  >
+    <div
+      className="container__in-constuction"
+    >
+      <span
+        className="warning__in-constuction"
+      >
+         In construction 
+      </span>
+    </div>
+  </div>
+</div>
+`;

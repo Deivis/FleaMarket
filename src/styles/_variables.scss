@@ -1,0 +1,22 @@
+// Mixins
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Colors
+$light-grey: #f5f7fa;
+$medium-grey: #666;
+$dark-grey: #333;
+$dark-color: #0071bc;
+$highlight: #009fda;
+$inactive: #839bc2;
+$error: #c0392b;
+$warning: #f39c12;
+$success: #27ae60;
+
+// Variables
+$main-font: 'Roboto', sans-serif;
+$main-border: 1px dashed #ccc;
+$main-radius: 2px;
+$default-border: 1px solid $light-grey;

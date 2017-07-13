@@ -8,7 +8,9 @@
     }
   },
   "rules": {
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": "off",
+    "no-debugger": "warn"
   },
   "env": {
     "node": true,

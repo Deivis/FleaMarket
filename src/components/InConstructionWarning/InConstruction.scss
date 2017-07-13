@@ -1,0 +1,17 @@
+@import '../../styles/_variables';
+
+.container__in-constuction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  color: $medium-grey;
+}
+
+.warning__in-constuction {
+  font-size: 2.5em;
+  padding: 0.5em;
+  border-color: $medium-grey;
+  border: 2px dashed;
+}

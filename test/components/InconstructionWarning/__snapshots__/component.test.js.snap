@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`In construction Tests In construction Render 1`] = `
+<div
+  className="container__in-constuction"
+>
+  <span
+    className="warning__in-constuction"
+  >
+     In construction 
+  </span>
+</div>
+`;

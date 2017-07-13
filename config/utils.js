@@ -22,7 +22,7 @@ module.exports = {
     appBuild: resolveApp('build'),
     appPublic: resolveApp('public'),
     appHtml: resolveApp('public/index.html'),
-    appIndexJs: resolveApp('src/main.jsx'),
+    appIndexJs: resolveApp('src/main.js'),
     appSrc: resolveApp('src'),
     appNodeModules: resolveApp('node_modules'),
     nodePaths,
