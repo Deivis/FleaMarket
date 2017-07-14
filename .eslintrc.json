@@ -10,7 +10,8 @@
   "rules": {
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": "off",
-    "no-debugger": "warn"
+    "no-debugger": "warn",
+    "import/prefer-default-export": "warn"
   },
   "env": {
     "node": true,

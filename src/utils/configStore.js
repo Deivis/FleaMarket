@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import createSagaMiddleware, { END } from 'redux-saga';
 import rootReducer from './reducerCombiner';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -18,7 +19,10 @@ const devToolsEnhancer = hasDevTools() ? window.devToolsExtension() : f => f;
 const browserHistory = createBrowserHistory({ basename });
 
 export default function configureStore() {
-  const middleware = applyMiddleware(routerMiddleware(browserHistory));
+  const sagaMiddleware = createSagaMiddleware();
+  const middleware = applyMiddleware(
+    routerMiddleware(browserHistory),
+    sagaMiddleware);
 
   const enhancer = compose(
     middleware,
@@ -30,6 +34,8 @@ export default function configureStore() {
 
   return {
     ...store,
+    runSaga: sagaMiddleware.run,
+    stopSaga: () => store.dispatch(END),
     browserHistory,
   };
 }

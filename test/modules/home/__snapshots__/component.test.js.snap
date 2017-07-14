@@ -2,19 +2,19 @@
 
 exports[`Home Tests Home Render 1`] = `
 <div
-  className="home"
+  className="main"
 >
   <header
-    className="home__header"
+    className="main__header"
   >
     <span
-      className="home__title"
+      className="main__title"
     >
       Flea market
     </span>
   </header>
   <div
-    className="home__content"
+    className="main__content"
   >
     <div
       className="container__in-constuction"

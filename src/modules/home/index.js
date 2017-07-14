@@ -1,5 +1,9 @@
-import { connect } from 'react-redux';
+import Main from './Main';
+import sagas from './sagas';
+import reducer from './reducer';
 
-import Home from './Home';
+export default Main;
 
-export default connect(null, {})(Home);
+export { sagas };
+
+export { reducer };

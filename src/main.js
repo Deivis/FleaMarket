@@ -5,6 +5,7 @@ import './styles/main.scss';
 import configureStore from './utils/configStore';
 import routes from './routes';
 import Root from './components/Root';
+import { rootSaga } from './sagas';
 
 const store = configureStore();
 const history = store.browserHistory;
@@ -22,8 +23,11 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
     const nextRoutes = routes;
     const NextRoot = Root;
 
+    store.stopSaga();
+    store.runSaga(rootSaga);
     renderApp(NextRoot, nextRoutes);
   });
 }
 
+store.runSaga(rootSaga);
 renderApp();

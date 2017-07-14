@@ -1,5 +1,5 @@
-@import '../../styles/_variables';
-.home {
+@import '../../../styles/_variables';
+.main {
   @include size(100%);
 
   display: flex;
@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-.home__header {
+.main__header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,14 +16,14 @@
   height: 70px;
 }
 
-.home__title {
+.main__title {
   color: white;
   padding: 1em;
   font-size: 2.5em;
   font-weight: 100;
 }
 
-.home__content {
+.main__content {
   display: flex;
   flex-flow: row wrap;
   flex-grow: 1;

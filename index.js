@@ -16,7 +16,11 @@ const runDev = (host, port) => {
     watchOptions: {
       ignored: /node_modules/,
     },
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: `/${process.env.APP_NAME}/` },
+      ],
+    },
     https: true,
     host,
   });
@@ -25,10 +29,9 @@ const runDev = (host, port) => {
     if (error) {
       console.log(error);
     }
-    console.log(`Running at:${port}`);
+    console.log(`Running at: ${host}:${port}${process.env.APP_NAME}`);
   });
 };
-
 const host = process.env.HOST || 'https://localhost';
 const port = process.env.PORT || 3000;
 

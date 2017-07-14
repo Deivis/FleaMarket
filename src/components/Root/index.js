@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-const basename = process.env.APP_NAME || '/';
 const Root = ({ store, history, routes }) => (
   <div>
     <Provider store={store}>
       <BrowserRouter
-        basename={basename}
+        basename={process.env.APP_NAME}
         history={history}
       >
         {routes(store)}
