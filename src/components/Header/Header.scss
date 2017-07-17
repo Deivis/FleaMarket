@@ -1,0 +1,44 @@
+@import '../../styles/_variables';
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $medium-grey;
+  flex: 0 0 auto;
+  height: 70px;
+}
+
+.header__cart {
+  position: absolute;
+  right: 0.5em;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__cart-button {
+  background-image: $iconCartBig;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+}
+
+.header__counter {
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.header__title {
+  color: white;
+  padding: 1em;
+  font-size: 2.5em;
+  font-weight: 100;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

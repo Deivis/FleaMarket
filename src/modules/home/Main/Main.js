@@ -6,9 +6,6 @@ import './Main.scss';
 
 const Main = () => (
   <div className="main">
-    <header className="main__header">
-      <span className="main__title">Flea market</span>
-    </header>
     <div className="main__content">
       <ItemList />
     </div>

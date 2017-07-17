@@ -1,0 +1,76 @@
+@import '../../../styles/_variables';
+
+.item__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15em;
+}
+
+.item__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item__button-back {
+  background-image: $iconBack;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+}
+
+.item_title {
+  text-align: center;
+  font-size: 1.9em;
+  width: 100%;
+}
+
+.item__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item__body > div{
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item__about-seller {
+  width: 100%;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+
+.item__price {
+  font-size: 1.3em;
+}
+
+.item__button-add, .item__price {
+  height: 40px;
+}
+
+.item__picture {
+  min-height: 300px;
+  min-width: 300px;
+  background-color: $light-grey;
+}
+
+.item__product-description {
+  width: auto;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.item__product-description > h5 {
+  text-align: center;
+}

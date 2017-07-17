@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
+import Header from '../Header';
+import './Root.scss';
+
 const Root = ({ store, history, routes }) => (
   <div>
     <Provider store={store}>
@@ -10,7 +13,10 @@ const Root = ({ store, history, routes }) => (
         basename={process.env.APP_NAME}
         history={history}
       >
-        {routes(store)}
+        <div>
+          <Header />
+          {routes(store)}
+        </div>
       </BrowserRouter>
     </Provider>
     <span className="root__version">Version {process.env.npm_package_version}</span>

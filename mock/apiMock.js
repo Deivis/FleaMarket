@@ -1,37 +1,55 @@
 import { v4 } from 'node-uuid';
 
-const createBaseItemMock = () => ({
+const createBaseItemMock = name => ({
   id: v4(),
-  name: '',
-  price: 0.0,
-  category: '',
-  shortDescription: '',
+  name,
+  price: 10.0,
+  category: 'Test category',
+  shortDescription: 'Test product',
   thumbnail: '',
 });
 
 const createFullItemMock = baseItem => Object.assign({}, baseItem, {
-  description: '',
+  description:
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Etiam in efficitur ex, non porta tellus. Cras id pretium sem, quis blandit dui.
+    Sed at vulputate risus, quis placerat massa. Duis venenatis nisi in ipsum bibendum, ut tempor sem tempus.
+    Suspendisse pharetra purus vel lectus maximus rhoncus. Fusce felis dolor, lacinia quis nisl ut, pretium interdum nisi.
+    Fusce id suscipit ipsum.`,
   images: [],
-  quantity: 0,
-  seller: '',
+  available: 5,
+  seller: 'Test seller',
+  aboutSeller: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Etiam in efficitur ex, non porta tellus. Cras id pretium sem, quis blandit dui.`,
 });
 
-const mockItems = [5].map(createBaseItemMock);
+let mockItems = sessionStorage.getItem('mockItems');
+
+mockItems = mockItems ? JSON.parse(mockItems) : (Array(5).fill(1)).map((item, idx) => createBaseItemMock(`Test ${idx + item}`));
+
+sessionStorage.setItem('mockItems', JSON.stringify(mockItems));
+
+const createFakeResponse = data => ({
+  statusCode: 200,
+  status: '200 OK',
+  data,
+});
 
 const items = filter => new Promise((resolve) => {
   setTimeout(() => {
+    let returnValue;
     if (filter) {
-      resolve(mockItems.filter);
+      returnValue = mockItems.filter(i => i.id === filter);
     }
-    resolve(mockItems);
+    resolve(createFakeResponse(returnValue || mockItems));
   }, 500);
 });
 
 const item = itemId => new Promise((resolve) => {
   setTimeout(() => {
     if (itemId) {
-      const baseItem = mockItems.filter(i => i.id === itemId);
-      resolve(createFullItemMock(baseItem));
+      const baseItem = mockItems.find(i => i.id === itemId);
+      resolve(createFakeResponse(createFullItemMock(baseItem || mockItems[0])));
     }
     resolve();
   }, 500);

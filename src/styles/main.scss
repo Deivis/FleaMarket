@@ -15,6 +15,10 @@ html {
   font-weight: 400;
 }
 
+button {
+  cursor: pointer;
+}
+
 .root {
   @include size(100%);
 
@@ -31,7 +35,7 @@ html {
   display: flex;
   position: fixed;
   left: 0;
-  top:0;
+  top: 1.5em;
   bottom: 0;
   right: 0;
   text-align: center;
@@ -40,11 +44,4 @@ html {
   align-items: center;
   font-family: $main-font;
   font-size: 3em;
-}
-
-.root__version {
-  position: fixed;
-  left: 5px;
-  bottom: 5px;
-  font-size: 0.8em;
 }

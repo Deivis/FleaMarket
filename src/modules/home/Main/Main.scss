@@ -7,22 +7,6 @@
   height: 100vh;
 }
 
-.main__header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $medium-grey;
-  flex: 0 0 auto;
-  height: 70px;
-}
-
-.main__title {
-  color: white;
-  padding: 1em;
-  font-size: 2.5em;
-  font-weight: 100;
-}
-
 .main__content {
   display: flex;
   flex-flow: row wrap;

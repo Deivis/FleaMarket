@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import Item from './Item';
+import './ItemList.scss';
+
 const itemShape = PropTypes.shape({
   id: PropTypes.string,
   name: PropTypes.string,
@@ -15,14 +18,15 @@ const itemShape = PropTypes.shape({
 
 const propTypes = {
   items: PropTypes.arrayOf(itemShape),
-  selectItem: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
   getItems: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  history: PropTypes.shape({}),
 };
 
 const defaultProps = {
   items: null,
+  history: null,
 };
 
 class ItemList extends PureComponent {
@@ -33,17 +37,28 @@ class ItemList extends PureComponent {
     }
   }
 
+  handleSelect(id) {
+    const { history } = this.props;
+    history.push(`item/${id}`);
+  }
+
   render() {
-    const { items, selectItem, addToCart, isFetching } = this.props;
+    const {
+        items,
+        addToCart,
+        isFetching,
+    } = this.props;
     return (
-      <ul className="main__item-list">
+      <ul className="item-list">
         {
           !isFetching && items &&
           items.map(item => (
-            <li>
-              <button onClick={() => selectItem(item.id)}>View item</button>
-              {item.name}
-              <button onClick={() => addToCart(item.id)}>Add to cart</button>
+            <li key={item.id} className="item-list__item-container">
+              <Item
+                item={item}
+                selectItem={() => this.handleSelect(item.id)}
+                addToCart={() => addToCart(item)}
+              />
             </li>
           ))
         }
