@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import actions from '../actions';
-import List from './List';
+import CartList from './List';
 
 const { deleteItem } = actions;
 
@@ -14,4 +14,4 @@ const mapStateToProps = ({ cart }) => ({
 export default withRouter(connect(mapStateToProps,
   {
     deleteItem,
-  })(List));
+  })(CartList));

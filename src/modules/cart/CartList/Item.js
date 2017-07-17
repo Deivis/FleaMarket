@@ -22,6 +22,13 @@ const propTypes = {
 const Item = ({ item, deleteItem, changeQuantity }) => (
   <div className="cart-list__item">
     <div className="cart-list__body">
+      <div className="cart-list__delete">
+        <button
+          type="button"
+          onClick={deleteItem}
+          className="cart-list__delete-button"
+        />
+      </div>
       <div className="cart-list__sumary">
         <div className="cart-list__image">
           <img
@@ -30,7 +37,7 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
             alt=""
           />
         </div>
-        <span>${ item.name }</span>
+        <span>{ item.name }</span>
         <span>Quantity:
           <input
             type="number"
@@ -40,12 +47,7 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
           />
         </span>
         <span>Price: ${ item.price }</span>
-        <span>Total: ${ item.quantity * item.price }</span>
-        <button
-          type="button"
-          onClick={deleteItem}
-          className="cart-list__delete"
-        />
+        <span>Total: ${ (item.quantity || 1) * item.price }</span>
       </div>
       <div className="cart-list__description">
         <p> { item.shortDescription } </p>
@@ -54,6 +56,7 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
     </div>
   </div>
 );
+
 
 Item.propTypes = propTypes;
 

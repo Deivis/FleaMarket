@@ -19,15 +19,15 @@ const itemShape = PropTypes.shape({
 });
 
 const propTypes = {
-  summaryId: PropTypes.string.isRequired,
+  summaryId: PropTypes.string,
   items: PropTypes.arrayOf(itemShape),
-  isFetching: PropTypes.bool.isRequired,
   history: PropTypes.shape({}),
   deleteItem: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
   items: null,
+  summaryId: null,
   history: null,
 };
 
@@ -51,20 +51,21 @@ class CartList extends PureComponent {
   render() {
     const {
         items,
-        isFetching,
+        summaryId,
     } = this.props;
     return (
-      <div>
+      <div className="cart">
         <ControllButtons
           onFinish={() => this.finishSopping()}
           onBack={() => this.hadleBack()}
+          finishDisabled={!items || !summaryId}
         />
         {
-          !isFetching && items &&
-          <ul className="item-list">
+          items &&
+          <ul className="cart-list">
             {
               items.map(item => (
-                <li key={item.id} className="item-list__item-container">
+                <li key={item.id} className="cart-list__item-container">
                   <Item
                     item={item}
                     changeQuantity={() => this.handleChange(item)}
@@ -76,11 +77,17 @@ class CartList extends PureComponent {
           </ul>
         }
         {
-          isFetching && <div className="cart__loading" ><span className="loading" /> </div>
+          (!items || !items.length) &&
+          <div className="cart__empty" >
+            <span className="cart__empty-message">
+              No items found
+            </span>
+          </div>
         }
         <ControllButtons
           onFinish={() => this.finishSopping()}
           onBack={() => this.hadleBack()}
+          finishDisabled={!items || !summaryId}
         />
       </div>
     );

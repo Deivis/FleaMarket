@@ -1,6 +1,68 @@
+@import '../../../styles/_variables';
+
+.cart {
+  padding: 5em 20em;
+}
+
 .cart__controll-buttons {
   width: auto;
   display: flex;
   justify-content: space-between;
 }
 
+.cart-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.cart-list__item-container {
+  display: flex;
+  padding: 0.5em;
+  width: 100%;
+  justify-content: center;
+}
+
+.cart-list__delete {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cart-list__delete-button {
+  background-image: $icon-delete;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: transparent;
+}
+
+.cart-list__sumary {
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  padding: 0.5em
+}
+
+.cart-list__image {
+  width: 150px;
+  height: 150px;
+  background-color: $light-grey;
+}
+
+.cart-list__sumary > span {
+  padding: 0.5em;
+}
+
+.cart-list__description {
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.cart-list__description > p {
+  text-align: center;
+}

@@ -9,14 +9,17 @@ import {
 
 const storage = new Storage('cart');
 
+const storedCart = storage.load();
+
 const initialState = {
-  items: storage.load(),
+  items: storedCart.items,
+  id: storedCart.id,
 };
 
 const addItem = (items = [], item = {}) => {
   let newItems;
   if (items && !items.some(i => i.id === item.id)) {
-    newItems = items.concat([item]);
+    newItems = items.concat([Object.assign({}, item, { quantity: 1 })]);
   } else {
     newItems = items;
   }
@@ -36,7 +39,7 @@ const add = (state, { payload }) =>
   Object.assign({}, state, updateCart(addItem(state.items, payload)));
 
 const deleteItem = (state, { payload }) =>
-  Object.assign({}, state, updateCart(state.items.filter(item => !item.id === payload)));
+  Object.assign({}, state, updateCart(state.items.filter(item => item.id !== payload)));
 
 const handler = {
   [ADD]: add,

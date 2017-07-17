@@ -7,6 +7,8 @@ const createBaseItemMock = name => ({
   category: 'Test category',
   shortDescription: 'Test product',
   thumbnail: '',
+  available: 5,
+  seller: 'Test seller',
 });
 
 const createFullItemMock = baseItem => Object.assign({}, baseItem, {
@@ -17,8 +19,6 @@ const createFullItemMock = baseItem => Object.assign({}, baseItem, {
     Suspendisse pharetra purus vel lectus maximus rhoncus. Fusce felis dolor, lacinia quis nisl ut, pretium interdum nisi.
     Fusce id suscipit ipsum.`,
   images: [],
-  available: 5,
-  seller: 'Test seller',
   aboutSeller: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Etiam in efficitur ex, non porta tellus. Cras id pretium sem, quis blandit dui.`,
 });
