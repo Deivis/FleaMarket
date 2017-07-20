@@ -6,8 +6,9 @@ import Input from '../../../components/FormInput';
 import FormNotification from '../../../components/FormNotification';
 import validate from './validate';
 import normalizePhone from '../../../utils/normalize/phone';
-import normalizeCPF from '../../../utils/normalize/cpf';
+import normalizePersonID from '../../../utils/normalize/personID';
 import normalizeDate from '../../../utils/normalize/date';
+import normalizeZipCode from '../../../utils/normalize/zipcode';
 
 import './Main.scss';
 import '../../../styles/form.scss';
@@ -18,7 +19,6 @@ const propTypes = {
   submitting: PropTypes.bool.isRequired,
   pristine: PropTypes.bool.isRequired,
   error: PropTypes.string,
-  history: PropTypes.shape({}),
   summaryId: PropTypes.string.isRequired,
 };
 
@@ -27,19 +27,20 @@ const defaultProps = {
   history: null,
 };
 
-const maskCPF = '000.000.000-00';
+const maskZipCode = '00000-000';
+const maskID = '000.000.000-00';
 const maskDate = 'dd/mm/aaaa';
 
 class IdentificationFrom extends PureComponent {
   render() {
-    const { handleSubmit, submitting, pristine, error, onSubmit, history, summaryId } = this.props;
+    const { handleSubmit, submitting, pristine, error, onSubmit, summaryId } = this.props;
     return (
       <div className="checkout">
         <div className="checkout__proccess">
           Identification
         </div>
         <form
-          onSubmit={handleSubmit(data => onSubmit({ data, push: history.push, summaryId }))}
+          onSubmit={handleSubmit(data => onSubmit({ data, summaryId }))}
           className="checkout__form"
         >
           <label htmlFor="name" className="form__label">Name</label>
@@ -68,15 +69,15 @@ class IdentificationFrom extends PureComponent {
             component={Input}
             placeholder="(00) 0000-00000"
           />
-          <label htmlFor="code" className="form__label">CPF</label>
+          <label htmlFor="personID" className="form__label">CPF</label>
           <Field
-            id="code"
-            name="code"
+            id="personID"
+            name="personID"
             type="text"
             inputClass="form__input"
-            normalize={normalizeCPF}
+            normalize={normalizePersonID}
             component={Input}
-            placeholder={maskCPF}
+            placeholder={maskID}
           />
           <label htmlFor="birthday" className="form__label">Birthday</label>
           <Field
@@ -88,6 +89,34 @@ class IdentificationFrom extends PureComponent {
             component={Input}
             placeholder={maskDate}
           />
+          <div className="checkout__address">
+            <label htmlFor="address" className="form__label">Address</label>
+            <Field
+              type="text"
+              id="address"
+              name="address"
+              inputClass="form__input"
+              component={Input}
+            />
+            <label htmlFor="complement" className="form__label">Complement</label>
+            <Field
+              type="text"
+              id="complement"
+              name="Complement"
+              inputClass="form__input"
+              component={Input}
+            />
+            <label htmlFor="zipcode" className="form__label">Zip code</label>
+            <Field
+              type="text"
+              id="zipcode"
+              name="zipcode"
+              inputClass="form__input"
+              normalize={normalizeZipCode}
+              component={Input}
+              placeholder={maskZipCode}
+            />
+          </div>
           <div className="form__buttons">
             <button className="btn" disabled={pristine || submitting} type="submit" >
               Continue
@@ -103,4 +132,12 @@ class IdentificationFrom extends PureComponent {
 IdentificationFrom.propTypes = propTypes;
 IdentificationFrom.defaultProps = defaultProps;
 
-export default reduxForm({ form: 'identification', validate })(IdentificationFrom);
+const onSuccess = (result, dispatch, props) => {
+  props.history.push(`/payment/${props.summaryId}`);
+};
+
+export default reduxForm({
+  form: 'identification',
+  validate,
+  onSubmitSuccess: onSuccess,
+})(IdentificationFrom);

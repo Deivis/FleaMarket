@@ -1,4 +1,4 @@
-const normalizCPF = (value) => {
+const normalizePersonID = (value) => {
   if (!value) {
     return value;
   }
@@ -20,4 +20,4 @@ const normalizCPF = (value) => {
   return `${onlyNums.slice(0, 3)}.${onlyNums.slice(3, 6)}.${onlyNums.slice(6, 9)}-${onlyNums.slice(9, 11)}`;
 };
 
-export default normalizCPF;
+export default normalizePersonID;
