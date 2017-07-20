@@ -15,8 +15,14 @@ const validate = (values) => {
   }
 
   if (!values.code) {
-    errors.code = 'Invalid identification';
+    errors.code = 'Identification i required';
   }
+
+  if (!values.birthday) {
+    errors.birthday = 'Birthday is required';
+  }
+
+  return errors;
 };
 
 export default validate;

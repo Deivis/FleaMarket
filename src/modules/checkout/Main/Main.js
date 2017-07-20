@@ -5,33 +5,43 @@ import PropTypes from 'prop-types';
 import Input from '../../../components/FormInput';
 import FormNotification from '../../../components/FormNotification';
 import validate from './validate';
-import normalizePhone from '../../../utils/normalizePhone';
-import normalizeCPF from '../../../utils/normalizeCPF';
+import normalizePhone from '../../../utils/normalize/phone';
+import normalizeCPF from '../../../utils/normalize/cpf';
+import normalizeDate from '../../../utils/normalize/date';
+
+import './Main.scss';
+import '../../../styles/form.scss';
 
 const propTypes = {
-  formSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired,
   error: PropTypes.string,
+  history: PropTypes.shape({}),
+  summaryId: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
   error: null,
+  history: null,
 };
 
 const maskCPF = '000.000.000-00';
+const maskDate = 'dd/mm/aaaa';
 
-class Main extends PureComponent {
-  handleSubmit() {
-    console.log(this.props.formSubmit);
-  }
+class IdentificationFrom extends PureComponent {
   render() {
-    const { formSubmit, submitting, error } = this.props;
+    const { handleSubmit, submitting, pristine, error, onSubmit, history, summaryId } = this.props;
     return (
       <div className="checkout">
         <div className="checkout__proccess">
           Identification
         </div>
-        <form onSubmit={formSubmit} className="checkout__form">
+        <form
+          onSubmit={handleSubmit(data => onSubmit({ data, push: history.push, summaryId }))}
+          className="checkout__form"
+        >
           <label htmlFor="name" className="form__label">Name</label>
           <Field
             type="text"
@@ -68,9 +78,19 @@ class Main extends PureComponent {
             component={Input}
             placeholder={maskCPF}
           />
+          <label htmlFor="birthday" className="form__label">Birthday</label>
+          <Field
+            id="birthday"
+            name="birthday"
+            type="text"
+            inputClass="form__input"
+            normalize={normalizeDate}
+            component={Input}
+            placeholder={maskDate}
+          />
           <div className="form__buttons">
-            <button className="btn" disabled={submitting} type="submit" >
-              Criar conta
+            <button className="btn" disabled={pristine || submitting} type="submit" >
+              Continue
             </button>
           </div>
           {error && <FormNotification message={error} type="error" />}
@@ -80,7 +100,7 @@ class Main extends PureComponent {
   }
 }
 
-Main.propTypes = propTypes;
-Main.defaultProps = defaultProps;
+IdentificationFrom.propTypes = propTypes;
+IdentificationFrom.defaultProps = defaultProps;
 
-export default reduxForm({ form: 'identification', validate })(Main);
+export default reduxForm({ form: 'identification', validate })(IdentificationFrom);

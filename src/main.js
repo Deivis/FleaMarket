@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import './styles/main.scss';
-import configureStore from './utils/configStore';
+import configureStore from './store';
 import routes from './routes';
 import Root from './components/Root';
 import { rootSaga } from './sagas';

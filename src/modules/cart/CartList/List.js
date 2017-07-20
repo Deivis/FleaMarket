@@ -45,7 +45,7 @@ class CartList extends PureComponent {
 
   finishSopping() {
     const { history, summaryId } = this.props;
-    history.push(`/payment/${summaryId}`);
+    history.push(`/checkout/${summaryId}`);
   }
 
   render() {

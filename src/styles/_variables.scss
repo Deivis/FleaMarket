@@ -5,6 +5,7 @@
 }
 
 // Colors
+$classic-grey: #ccc;
 $light-grey: #f5f7fa;
 $medium-grey: #666;
 $dark-grey: #333;
@@ -17,7 +18,7 @@ $success: #27ae60;
 
 // Variables
 $main-font: 'Roboto', sans-serif;
-$main-border: 1px dashed #ccc;
+$main-border: 1px dashed $classic-grey;
 $main-radius: 2px;
 $default-border: 1px solid $light-grey;
 

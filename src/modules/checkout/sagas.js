@@ -1,17 +1,24 @@
 import 'regenerator-runtime/runtime';
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, call } from 'redux-saga/effects';
+import api from '../../../mock/apiMock';
+import Storage from '../../utils/storage';
 
 import actions from './actions';
 
 function* startPayment({ payload }) {
   try {
-    console.log(payload);
-    throw new Error('Not implemented');
+    const { push, data, summaryId } = payload;
+    const checkout = yield call(api.saveIdentification, data, summaryId);
+    const st = new Storage('checkout');
+    st.save(checkout);
+    push('/');
   } catch (error) {
-    yield put(actions.fetchErrorResponse(new Error(error.message)));
+    console.log(error);
+    // TODO: create an action for this error
+    // yield put(actions.fetchErrorResponse(new Error(error.message)));
   }
 }
 
 export default function* sagas() {
-  yield takeLatest(actions.formSubmint, startPayment);
+  yield takeLatest(actions.formSubmit, startPayment);
 }

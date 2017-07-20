@@ -62,7 +62,7 @@ class Main extends PureComponent {
                   Price: $ {item.price}
                 </span>
                 <button
-                  onClick={() => console.log('wololo')}
+                  onClick={() => 'wololo'}
                   className="item__button-add"
                 >
                   Add to cart

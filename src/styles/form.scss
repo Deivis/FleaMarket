@@ -1,0 +1,64 @@
+@import '_variables';
+
+.form__label {
+  margin-top: 1.5em;
+  display: block;
+  font-size: 0.9em;
+}
+
+.form__label--inline {
+  margin: 0 1rem 0 0.3rem;
+  font-size: 0.9em;
+}
+
+.form__link {
+  font-size: 0.9em;
+  margin-top: 1em;
+  display: block;
+}
+
+.form__buttons {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.form__buttons > .btn:disabled {
+  color: $classic-grey;
+  cursor: default;
+}
+
+.form__buttons > .btn {
+  min-width: 150px;
+  min-height: 30px;
+  color: $medium-grey;
+  background-color: $light-grey;
+  border-radius: $main-radius;
+  border: 1px solid $classic-grey;
+  font-weight: 300;
+}
+
+.form__group {
+  margin-top: 1.5em;
+  position: relative;
+}
+
+.input__group {
+  display: inline-block;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+input:invalid {
+  box-shadow: 0 0 3px red;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: 1px solid $classic-grey;
+  padding: 7px;
+  border-radius: $main-radius;
+  width: 100%;
+}

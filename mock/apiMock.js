@@ -55,7 +55,14 @@ const item = itemId => new Promise((resolve) => {
   }, 500);
 });
 
+const saveIdentification = (identification, cartId) => new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(Object.assign({}, identification, { cartId }));
+  }, 300);
+});
+
 export default {
   items,
   item,
+  saveIdentification,
 };

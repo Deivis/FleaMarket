@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { connectRouter } from 'connected-react-router';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware, { END } from 'redux-saga';
-import rootReducer from './reducerCombiner';
+import rootReducer from './modules/reducerCombiner';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const basename = process.env.APP_NAME || '/';
@@ -37,5 +38,6 @@ export default function configureStore() {
     runSaga: sagaMiddleware.run,
     stopSaga: () => store.dispatch(END),
     browserHistory,
+    router: routerReducer,
   };
 }
