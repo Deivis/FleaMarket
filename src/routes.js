@@ -6,6 +6,7 @@ import Home from './modules/home';
 import Item from './modules/item';
 import Cart from './modules/cart';
 import Checkout from './modules/checkout';
+import Payment from './modules/payment';
 
 const routes = () => (
   <Switch>
@@ -13,6 +14,7 @@ const routes = () => (
     <Route exact path="/item/:id" component={Item} />
     <Route exact path="/cart" component={Cart} />
     <Route exact path="/checkout/:id" component={Checkout} />
+    <Route exact path="/checkout/:id/payment" component={Payment} />
     <Route component={NotFound} />
   </Switch>
 );

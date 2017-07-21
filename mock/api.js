@@ -61,8 +61,15 @@ const saveIdentification = (identification, cartId) => new Promise((resolve) => 
   }, 300);
 });
 
+const savePayment = summary => new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(summary);
+  }, 300);
+});
+
 export default {
   items,
   item,
   saveIdentification,
+  savePayment,
 };

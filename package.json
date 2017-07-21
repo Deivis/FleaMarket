@@ -60,6 +60,7 @@
   "dependencies": {
     "connected-react-router": "^4.2.3",
     "react": "^15.6.1",
+    "react-credit-cards": "^0.4.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",

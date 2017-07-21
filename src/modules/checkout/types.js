@@ -1,2 +1,2 @@
-const BASE_ACTION = './payment';
+const BASE_ACTION = './checkout';
 export const SUBMIT = `${BASE_ACTION}/SUBMIT`;

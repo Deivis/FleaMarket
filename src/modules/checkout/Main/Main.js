@@ -20,6 +20,9 @@ const propTypes = {
   pristine: PropTypes.bool.isRequired,
   error: PropTypes.string,
   summaryId: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const defaultProps = {
@@ -33,14 +36,14 @@ const maskDate = 'dd/mm/aaaa';
 
 class IdentificationFrom extends PureComponent {
   render() {
-    const { handleSubmit, submitting, pristine, error, onSubmit, summaryId } = this.props;
+    const { handleSubmit, submitting, pristine, error, onSubmit, summaryId, history } = this.props;
     return (
       <div className="checkout">
         <div className="checkout__proccess">
           Identification
         </div>
         <form
-          onSubmit={handleSubmit(data => onSubmit({ data, summaryId }))}
+          onSubmit={handleSubmit(data => onSubmit({ data, summaryId, push: history.push }))}
           className="checkout__form"
         >
           <label htmlFor="name" className="form__label">Name</label>
@@ -69,7 +72,7 @@ class IdentificationFrom extends PureComponent {
             component={Input}
             placeholder="(00) 0000-00000"
           />
-          <label htmlFor="personID" className="form__label">CPF</label>
+          <label htmlFor="personID" className="form__label">Personal identifier (CPF)</label>
           <Field
             id="personID"
             name="personID"
@@ -132,12 +135,7 @@ class IdentificationFrom extends PureComponent {
 IdentificationFrom.propTypes = propTypes;
 IdentificationFrom.defaultProps = defaultProps;
 
-const onSuccess = (result, dispatch, props) => {
-  props.history.push(`/payment/${props.summaryId}`);
-};
-
 export default reduxForm({
   form: 'identification',
   validate,
-  onSubmitSuccess: onSuccess,
 })(IdentificationFrom);

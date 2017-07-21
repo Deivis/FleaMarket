@@ -1,14 +1,16 @@
 import 'regenerator-runtime/runtime';
 import { takeLatest, call } from 'redux-saga/effects';
 import { SubmissionError } from 'redux-form';
-import api from '../../../mock/apiMock';
+import { saveIdentification } from './api';
 
 import actions from './actions';
 
 function* startPayment({ payload }) {
   try {
-    const { data, summaryId } = payload;
-    yield call(api.saveIdentification, data, summaryId);
+    const { data, summaryId, push } = payload;
+    yield call(saveIdentification, data, summaryId);
+    debugger;
+    push(`/checkout/${summaryId}/payment`);
   } catch (error) {
     throw new SubmissionError({
       payload,
