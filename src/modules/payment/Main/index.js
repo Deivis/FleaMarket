@@ -9,9 +9,15 @@ const { submit, fetchRequest } = actions;
 
 const selector = formValueSelector('signup');
 
-const mapStateToProps = state => ({
-  summaryId: state.cart ? state.cart.id : '',
-  typedId: selector(state, 'typeId'),
+const mapStateToProps = ({ payment, ...state }) => ({
+  ...payment,
+  type: selector(state, 'type') || 'card',
+  card: {
+    cvc: selector(state, 'cardCVC') || 0,
+    expiry: selector(state, 'cardExpire') || 9999,
+    name: selector(state, 'cardName') || '',
+    number: selector(state, 'cardNumber') || '',
+  },
 });
 
 export default withRouter(connect(mapStateToProps,

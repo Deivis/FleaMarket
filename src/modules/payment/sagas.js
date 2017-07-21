@@ -1,6 +1,5 @@
 import 'regenerator-runtime/runtime';
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { SubmissionError } from 'redux-form';
 import api from './api';
 
 import actions from './actions';
@@ -11,10 +10,7 @@ function* getSummary({ payload }) {
     const summary = yield call(api.getSummary, payload);
     yield put(actions.fetchResponse(summary));
   } catch (error) {
-    throw new SubmissionError({
-      payload,
-      _error: error,
-    });
+    yield put(actions.fetchResponseError(new Error('Usuário ou senha inválidos')));
   }
 }
 

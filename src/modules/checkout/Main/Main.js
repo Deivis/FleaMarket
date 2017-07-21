@@ -38,7 +38,7 @@ class IdentificationFrom extends PureComponent {
   render() {
     const { handleSubmit, submitting, pristine, error, onSubmit, summaryId, history } = this.props;
     return (
-      <div className="checkout">
+      <div className="checkout centrilized-content">
         <div className="checkout__proccess">
           Identification
         </div>

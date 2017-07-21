@@ -13,6 +13,7 @@ const initialState = {
   validCard: false,
   summary: null,
   isFetching: true,
+  type: 'card',
 };
 
 const formSubmit = state => Object.assign({}, state, {
@@ -34,7 +35,7 @@ const fetchErrorResponse = (state, { payload, error }) => Object.assign({}, stat
 
 const fetchResponse = (state, { payload, error }) => Object.assign({}, state, {
   isFetching: false,
-  summary: payload.data || payload,
+  summary: payload,
   error: error ? payload : null,
 });
 

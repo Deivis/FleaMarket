@@ -9,7 +9,6 @@ function* startPayment({ payload }) {
   try {
     const { data, summaryId, push } = payload;
     yield call(saveIdentification, data, summaryId);
-    debugger;
     push(`/checkout/${summaryId}/payment`);
   } catch (error) {
     throw new SubmissionError({

@@ -4,7 +4,6 @@ import Storage from '../../utils/storage';
 export const saveIdentification = (identification, cartId) => new Promise((resolve) => {
   apiMock.saveIdentification(identification, cartId)
     .then((summary) => {
-      debugger;
       const storage = new Storage(cartId);
       storage.save(summary);
       resolve(summary);

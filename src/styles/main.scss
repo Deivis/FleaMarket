@@ -45,3 +45,10 @@ button {
   font-family: $main-font;
   font-size: 3em;
 }
+
+.centrilized-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
