@@ -7,7 +7,7 @@ import actions from './actions';
 function* getSummary({ payload }) {
   try {
     const summary = yield call(api.getSummary, payload);
-    yield put(actions.fetchResponse(summary));
+    yield put(actions.fetchResponse({ summary }));
   } catch (error) {
     yield put(actions.fetchResponseError(error));
   }
@@ -15,9 +15,11 @@ function* getSummary({ payload }) {
 
 function* submit({ payload }) {
   try {
-    const summary = yield call(api.createPayment, payload);
-    yield put(actions.fetchResponse(summary));
+    const payment = yield call(api.createPayment, payload);
+    debugger;
+    yield put(actions.fetchResponse({ payment }));
   } catch (error) {
+    debugger;
     yield put(actions.fetchResponseError(error));
   }
 }

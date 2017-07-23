@@ -21,7 +21,9 @@ const itemShape = PropTypes.shape({
 const propTypes = {
   summaryId: PropTypes.string,
   items: PropTypes.arrayOf(itemShape),
-  history: PropTypes.shape({}),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
   deleteItem: PropTypes.func.isRequired,
 };
 

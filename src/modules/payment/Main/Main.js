@@ -10,13 +10,35 @@ import normalizeCreditCard from '../../../utils/normalize/creditCard';
 import normalizeCardExpiration from '../../../utils/normalize/cardExpiration';
 import List from './ItemList';
 
+const itemShape = PropTypes.shape({
+  id: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  category: PropTypes.string,
+  quantity: PropTypes.number,
+  available: PropTypes.number,
+  seller: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  thumbnail: PropTypes.string,
+});
+
+const summaryShape = PropTypes.shape({
+  items: PropTypes.arrayOf(itemShape),
+  total: PropTypes.number,
+  name: PropTypes.string,
+  address: PropTypes.string,
+  complement: PropTypes.string,
+  zipcode: PropTypes.string,
+});
+
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
   pristine: PropTypes.bool.isRequired,
   error: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
-  summary: PropTypes.shape({}),
+  summary: summaryShape,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -62,8 +84,6 @@ class Payment extends PureComponent {
     } = this.props;
     const isCard = type === 'card';
     const focused = card.cvc ? 'cvc' : '';
-    // TODO: CONTINUE HERE !!! FINISH THIS FORM
-    debugger;
     return (
       <div className="payment centrilized-content">
         {
@@ -79,7 +99,7 @@ class Payment extends PureComponent {
               <span>Zip code {summary.zipcode} </span>
               {
                 summary.items && summary.items instanceof Array &&
-                <List items={summary.items} />
+                <List items={summary.items} total={summary.total} />
               }
             </div>
             <form

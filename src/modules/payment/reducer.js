@@ -35,7 +35,8 @@ const fetchErrorResponse = (state, { payload, error }) => Object.assign({}, stat
 
 const fetchResponse = (state, { payload, error }) => Object.assign({}, state, {
   isFetching: false,
-  summary: payload,
+  payment: payload.payment || state.payment,
+  summary: payload.summary || state.summary,
   error: error ? payload : null,
 });
 
