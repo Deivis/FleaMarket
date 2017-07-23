@@ -6,6 +6,9 @@ import 'react-credit-cards/lib/styles.scss';
 
 import FormNotification from '../../../components/FormNotification';
 import validate from './validate';
+import normalizeCreditCard from '../../../utils/normalize/creditCard';
+import normalizeCardExpiration from '../../../utils/normalize/cardExpiration';
+import List from './ItemList';
 
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
@@ -58,15 +61,27 @@ class Payment extends PureComponent {
       card,
     } = this.props;
     const isCard = type === 'card';
-
+    const focused = card.cvc ? 'cvc' : '';
     // TODO: CONTINUE HERE !!! FINISH THIS FORM
-
+    debugger;
     return (
       <div className="payment centrilized-content">
         {
           summary &&
           <div>
-            <div />
+            <div className="payment__summary centrilized-content">
+              <h4> Summary </h4>
+              <span>Customer {summary.name} </span>
+              <span>
+                Address: {summary.address}
+                {summary.complement && `, ${summary.complement}`}
+              </span>
+              <span>Zip code {summary.zipcode} </span>
+              {
+                summary.items && summary.items instanceof Array &&
+                <List items={summary.items} />
+              }
+            </div>
             <form
               onSubmit={handleSubmit(data => onSubmit({ data, summary }))}
               className="checkout__form"
@@ -81,6 +96,7 @@ class Payment extends PureComponent {
                       component="input"
                       label="Credit card"
                       placeholder="Card number"
+                      normalize={normalizeCreditCard}
                     />
                     <Field
                       name="cardName"
@@ -95,10 +111,12 @@ class Payment extends PureComponent {
                       component="input"
                       label="Valid thru"
                       placeholder="99/99"
+                      normalize={normalizeCardExpiration}
                     />
                     <Field
                       name="cardCvc"
-                      type="text"
+                      type="tel"
+                      maxLength={3}
                       component="input"
                       label="Card verification code"
                       placeholder="CVC"
@@ -109,7 +127,7 @@ class Payment extends PureComponent {
                     name={card.name}
                     expiry={card.expiry}
                     cvc={card.cvc}
-                    callback={this.handleCallback}
+                    focused={focused}
                   />
                 </div>
               }

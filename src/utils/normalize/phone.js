@@ -1,9 +1,12 @@
+import onlyNumbers from '../onlyNumbers';
+
 const normalizePhone = (value) => {
   if (!value) {
     return value;
   }
 
-  const onlyNums = value.replace(/[^\d]/g, '');
+  const onlyNums = onlyNumbers(value);
+
   if (onlyNums.length === 0) {
     return onlyNums;
   }

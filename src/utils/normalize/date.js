@@ -1,9 +1,11 @@
+import onlyNumbers from '../onlyNumbers';
+
 const normalizeDate = (value) => {
   if (!value) {
     return value;
   }
 
-  const onlyNums = value.replace(/[^\d]/g, '');
+  const onlyNums = onlyNumbers(value);
 
   if (onlyNums.length <= 2) {
     return onlyNums;
