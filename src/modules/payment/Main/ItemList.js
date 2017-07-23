@@ -20,9 +20,14 @@ const List = ({ items }) => (
             Quantity: <span>{item.quantity}</span>
           </span>
           <span className="payment__item-description">
-            Total price: <span>${ item.price * item.quantity }</span>
+            Total price: <span>R${ item.price * item.quantity }</span>
           </span>
         </li>))
+    }
+    {
+      <li key="paymentTotal" className="payment__item-total">
+        Total price: R${items.reduce((prev, next) => prev + (next.price * next.quantity), 0)}
+      </li>
     }
   </ul>
 );
