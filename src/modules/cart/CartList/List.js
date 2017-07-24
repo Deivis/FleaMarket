@@ -12,7 +12,10 @@ const itemShape = PropTypes.shape({
   category: PropTypes.string,
   quantity: PropTypes.number,
   available: PropTypes.number,
-  seller: PropTypes.string,
+  seller: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
   description: PropTypes.string,
   image: PropTypes.string,
   thumbnail: PropTypes.string,

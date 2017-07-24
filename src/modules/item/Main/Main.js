@@ -9,7 +9,10 @@ const itemShape = PropTypes.shape({
   price: PropTypes.number,
   category: PropTypes.string,
   quantity: PropTypes.number,
-  seller: PropTypes.string,
+  seller: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
   description: PropTypes.string,
   image: PropTypes.string,
   thumbnail: PropTypes.string,
@@ -68,7 +71,7 @@ class Main extends PureComponent {
                   Add to cart
                 </button>
                 <div className="item__about-seller">
-                  <h5>About seller {item.seller}</h5>
+                  <h5>About seller {item.seller.name}</h5>
                   <p>{item.aboutSeller}</p>
                 </div>
               </div>

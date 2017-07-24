@@ -1,0 +1,18 @@
+@import '../../../styles/_variables';
+
+.payment__overlay {
+  position: fixed;
+  z-index: 100;
+  opacity: 0.8;
+  background-color: $dark-grey;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

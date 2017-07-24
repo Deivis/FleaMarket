@@ -15,11 +15,10 @@ function* getSummary({ payload }) {
 
 function* submit({ payload }) {
   try {
-    const payment = yield call(api.createPayment, payload);
-    debugger;
-    yield put(actions.fetchResponse({ payment }));
+    const { replace, data, summary } = payload;
+    const payment = yield call(api.createPayment, { data, summary });
+    replace(`/checkout/${summary.id}/summary/`, { summary: { payment } });
   } catch (error) {
-    debugger;
     yield put(actions.fetchResponseError(error));
   }
 }

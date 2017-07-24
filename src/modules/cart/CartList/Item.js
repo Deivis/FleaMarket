@@ -7,7 +7,10 @@ const itemShape = PropTypes.shape({
   price: PropTypes.number,
   category: PropTypes.string,
   quantity: PropTypes.number,
-  seller: PropTypes.string,
+  seller: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
   description: PropTypes.string,
   image: PropTypes.string,
   thumbnail: PropTypes.string,
@@ -51,7 +54,7 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
       </div>
       <div className="cart-list__description">
         <p> { item.shortDescription } </p>
-        <p> { item.seller } </p>
+        <p> { item.seller.name } </p>
       </div>
     </div>
   </div>

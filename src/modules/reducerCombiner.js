@@ -7,6 +7,7 @@ import { reducer as item } from './item';
 import { reducer as cart } from './cart';
 import { reducer as checkout } from './checkout';
 import { reducer as payment } from './payment';
+import { reducer as summary } from './summary';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   cart,
   checkout,
   payment,
+  summary,
 });
 
 export default rootReducer;

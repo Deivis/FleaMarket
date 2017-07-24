@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-
+      id: PropTypes.string,
+      name: PropTypes.string,
+      quantity: PropTypes.number,
+      price: PropTypes.price,
     })).isRequired,
 };
 

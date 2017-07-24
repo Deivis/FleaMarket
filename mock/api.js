@@ -8,7 +8,11 @@ const createBaseItemMock = name => ({
   shortDescription: 'Test product',
   thumbnail: '',
   available: 5,
-  seller: 'Test seller',
+  seller: {
+    id: 're_cj5h62ex001s4fw6d4knj4kpf',
+    name: 'Test seller',
+    percentage: 60,
+  },
 });
 
 const createFullItemMock = baseItem => Object.assign({}, baseItem, {
@@ -25,7 +29,7 @@ const createFullItemMock = baseItem => Object.assign({}, baseItem, {
 
 let mockItems = sessionStorage.getItem('mockItems');
 
-mockItems = mockItems ? JSON.parse(mockItems) : (Array(5).fill(1)).map((item, idx) => createBaseItemMock(`Test ${idx + item}`));
+mockItems = mockItems ? JSON.parse(mockItems) : (Array(10).fill(1)).map((item, idx) => createBaseItemMock(`Test ${idx + item}`));
 
 sessionStorage.setItem('mockItems', JSON.stringify(mockItems));
 

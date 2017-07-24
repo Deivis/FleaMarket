@@ -9,6 +9,7 @@ import validate from './validate';
 import normalizeCreditCard from '../../../utils/normalize/creditCard';
 import normalizeCardExpiration from '../../../utils/normalize/cardExpiration';
 import List from './ItemList';
+import './Main.scss';
 
 const itemShape = PropTypes.shape({
   id: PropTypes.string,
@@ -17,13 +18,17 @@ const itemShape = PropTypes.shape({
   category: PropTypes.string,
   quantity: PropTypes.number,
   available: PropTypes.number,
-  seller: PropTypes.string,
+  seller: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
   description: PropTypes.string,
   image: PropTypes.string,
   thumbnail: PropTypes.string,
 });
 
 const summaryShape = PropTypes.shape({
+  id: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(itemShape),
   total: PropTypes.number,
   name: PropTypes.string,
@@ -34,7 +39,7 @@ const summaryShape = PropTypes.shape({
 
 const propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  submitting: PropTypes.bool.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
   pristine: PropTypes.bool.isRequired,
   error: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
@@ -53,6 +58,9 @@ const propTypes = {
   getSummary: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const defaultProps = {
@@ -76,16 +84,18 @@ class Payment extends PureComponent {
       onSubmit,
       isFetching,
       pristine,
-      submitting,
+      isSubmitting,
       handleSubmit,
       error,
       type,
       card,
+      history,
     } = this.props;
     const isCard = type === 'card';
     const focused = card.cvc ? 'cvc' : '';
     return (
       <div className="payment centrilized-content">
+        { isSubmitting && <div className="payment__orvelay"> Saving payment </div> }
         {
           summary &&
           <div>
@@ -103,7 +113,7 @@ class Payment extends PureComponent {
               }
             </div>
             <form
-              onSubmit={handleSubmit(data => onSubmit({ data, summary }))}
+              onSubmit={handleSubmit(data => onSubmit({ data, summary, replace: history.replace }))}
               className="checkout__form"
             >
               {
@@ -152,7 +162,7 @@ class Payment extends PureComponent {
                 </div>
               }
               <div className="form__buttons">
-                <button className="btn" disabled={pristine || submitting} type="submit" >
+                <button className="btn" disabled={pristine || isSubmitting} type="submit" >
                   Continue
                 </button>
               </div>
