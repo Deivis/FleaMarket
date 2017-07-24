@@ -3,14 +3,16 @@ import Storage from '../../utils/storage';
 import onlyNumbers from '../../utils/onlyNumbers';
 
 const savePayment = (paymentMetadata) => {
-  const storage = Storage('payments');
+  debugger;
+  const storage = new Storage('payments');
   let payments = storage.load();
-  if (!payments) {
+  if (!payments || !(payments instanceof Array)) {
     payments = [paymentMetadata];
   } else {
     payments.push(paymentMetadata);
   }
   storage.save(payments);
+  debugger;
   return paymentMetadata;
 };
 
@@ -44,7 +46,7 @@ const getSplitRules = sellerId => new Promise((resolve) => {
       charge_processing_fee: true,
     },
     { // Seller split rule ( Default test seller id is used if the seller id isn't received )
-      recipient_id: sellerId || 're_civb4p9l7004xbm6dhsetkpj8',
+      recipient_id: sellerId || 're_cj5h62ex001s4fw6d4knj4kpf',
       percentage: 60,
       liable: true,
       charge_processing_fee: true,
@@ -56,18 +58,16 @@ const createPayment = (formData) => {
   const { summary, data } = formData;
   return getSplitRules(summary.sellerId)
     .then(splitRules =>
-      pagarme.client.connect({ api_key: process.env.api_key })
-        .then(client =>
-          client.transactions.create({
-            amount: summary.total,
-            card_number: data.cardNumber,
-            card_holder_name: data.cardName,
-            card_expiration_date: onlyNumbers(data.cardExpire),
-            card_cvv: data.cardCvc,
-            split_rules: splitRules,
-          }))
-        .then(metada => savePayment(metada)))
-    .catch(error => error || new Error('payment error'));
+      pagarme.client.connect({ api_key: process.env.API_KEY })
+        .then(client => client.transactions.create({
+          amount: (+summary.total * 100),
+          card_number: onlyNumbers(data.cardNumber),
+          card_holder_name: data.cardName,
+          card_expiration_date: onlyNumbers(data.cardExpire),
+          card_cvv: data.cardCvc,
+          split_rules: splitRules,
+        }))
+        .then(metada => savePayment(metada)));
 };
 const api = {
   getSummary,

@@ -20,17 +20,10 @@ const normalizeCreditCard = (value) => {
   }
 
   if (onlyNums.length <= 16) {
-    return `${onlyNums.slice(0, 4)} 
-    ${onlyNums.slice(4, 8)} 
-    ${onlyNums.slice(8, 12)} 
-    ${onlyNums.slice(12, 16)}`;
+    return `${onlyNums.slice(0, 4)} ${onlyNums.slice(4, 8)} ${onlyNums.slice(8, 12)} ${onlyNums.slice(12, 16)}`;
   }
 
-  return `${onlyNums.slice(0, 4)} 
-  ${onlyNums.slice(4, 8)} 
-  ${onlyNums.slice(8, 12)} 
-  ${onlyNums.slice(12, 16)} 
-  ${onlyNums.slice(16, 19)}`;
+  return `${onlyNums.slice(0, 4)} ${onlyNums.slice(4, 8)} ${onlyNums.slice(8, 12)} ${onlyNums.slice(12, 16)} ${onlyNums.slice(16, 19)}`;
 };
 
 export default normalizeCreditCard;
