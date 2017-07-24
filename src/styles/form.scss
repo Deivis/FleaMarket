@@ -56,6 +56,7 @@ input:invalid {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"] {
   border: 1px solid $classic-grey;
   padding: 7px;

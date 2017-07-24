@@ -5,8 +5,8 @@ const createBaseItemMock = name => ({
   name,
   price: 10.0,
   category: 'Test category',
-  shortDescription: 'Test product',
-  thumbnail: '',
+  shortDescription: 'Test product. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.',
+  thumbnail: 'https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/abajur_ceramica_tecido_24x11cm_bege_marrom__88474771_0001.jpg_600x600.jpg',
   available: 5,
   seller: {
     id: 're_cj5h62ex001s4fw6d4knj4kpf',

@@ -121,7 +121,7 @@ class IdentificationFrom extends PureComponent {
             />
           </div>
           <div className="form__buttons">
-            <button className="btn" disabled={pristine || submitting} type="submit" >
+            <button className="button" disabled={pristine || submitting} type="submit" >
               Continue
             </button>
           </div>

@@ -10,8 +10,19 @@ const propTypes = {
 
 const ControllButtons = ({ onBack, onFinish, finishDisabled }) => (
   <div className="cart__controll-buttons">
-    <button onClick={onBack}> Back to shopping </button>
-    <button onClick={onFinish} disabled={finishDisabled}> Finish shopping </button>
+    <button
+      onClick={onBack}
+      className="button--default"
+    >
+      Back to shopping
+    </button>
+    <button
+      onClick={onFinish}
+      disabled={finishDisabled}
+      className="button"
+    >
+      Finish shopping
+    </button>
   </div>
 );
 

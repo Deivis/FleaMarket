@@ -94,19 +94,20 @@ class Payment extends PureComponent {
     const isCard = type === 'card';
     const focused = card.cvc ? 'cvc' : '';
     return (
-      <div className="payment centrilized-content">
-        { isSubmitting && <div className="payment__orvelay"> Saving payment </div> }
+      <div className="centrilized-content">
+        { true && <div className="payment__orvelay"> Saving payment </div> }
         {
           summary &&
-          <div>
-            <div className="payment__summary centrilized-content">
-              <h4> Summary </h4>
+          <div className="payment">
+            <div className="payment__summary">
+              <h3> Summary </h3>
               <span>Customer {summary.name} </span>
               <span>
                 Address: {summary.address}
                 {summary.complement && `, ${summary.complement}`}
               </span>
               <span>Zip code {summary.zipcode} </span>
+              <h4>Ordered items</h4>
               {
                 summary.items && summary.items instanceof Array &&
                 <List items={summary.items} total={summary.total} />
@@ -145,7 +146,7 @@ class Payment extends PureComponent {
                     />
                     <Field
                       name="cardCvc"
-                      type="tel"
+                      type="number"
                       maxLength={3}
                       component="input"
                       label="Card verification code"
@@ -162,7 +163,7 @@ class Payment extends PureComponent {
                 </div>
               }
               <div className="form__buttons">
-                <button className="btn" disabled={pristine || isSubmitting} type="submit" >
+                <button className="button" disabled={pristine || isSubmitting} type="submit" >
                   Continue
                 </button>
               </div>

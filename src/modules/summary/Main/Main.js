@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import List from './RecipientsList';
+import './Main.scss';
 
 const propTypes = {
   // TODO: review this shape
@@ -35,14 +36,14 @@ class Summary extends PureComponent {
     const { items, recipients } = payment.metadata;
     const total = items && items.reduce((prev, next) => prev + (next.price * next.quantity), 0);
     return (
-      <div>
+      <div className="summary">
         { payment &&
           <div>
-            <h4> Payment number { payment.id } </h4>
+            <h3 className="summary__title"> Payment number { payment.id } </h3>
             { items && recipients &&
-              <div>
-                <h5> Total payed R${ total } </h5>
-                <h5> Payables </h5>
+              <div className="summary__content">
+                <h4> Total payed R${ total } </h4>
+                <h3> Payables </h3>
                 <List
                   recipients={recipients}
                   total={total}
@@ -51,7 +52,12 @@ class Summary extends PureComponent {
             }
           </div>
         }
-        <button onClick={() => history.replace('/')}> Return to shop </button>
+        <button
+          className="button"
+          onClick={() => history.replace('/')}
+        >
+          Return to shop
+        </button>
       </div>
     );
   }

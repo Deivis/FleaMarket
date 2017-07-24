@@ -24,14 +24,7 @@ const propTypes = {
 
 const Item = ({ item, deleteItem, changeQuantity }) => (
   <div className="cart-list__item">
-    <div className="cart-list__body">
-      <div className="cart-list__delete">
-        <button
-          type="button"
-          onClick={deleteItem}
-          className="cart-list__delete-button"
-        />
-      </div>
+    <div>
       <div className="cart-list__sumary">
         <div className="cart-list__image">
           <img
@@ -40,21 +33,33 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
             alt=""
           />
         </div>
-        <span>{ item.name }</span>
-        <span>Quantity:
-          <input
-            type="number"
-            max={item.available}
-            value={item.quantity}
-            onChange={evt => changeQuantity(evt.target.value)}
-          />
-        </span>
-        <span>Price: ${ item.price }</span>
-        <span>Total: ${ (item.quantity || 1) * item.price }</span>
-      </div>
-      <div className="cart-list__description">
-        <p> { item.shortDescription } </p>
-        <p> { item.seller.name } </p>
+        <div className="cart-list__body">
+          <div className="cart-list__header">
+            <h4>{ item.name }</h4>
+            <button
+              type="button"
+              onClick={deleteItem}
+              className="cart-list__delete-button"
+            />
+          </div>
+          <div className="cart-list__info">
+            <span>Quantity:
+              <input
+                className="cart-list__quantity"
+                type="number"
+                max={item.available}
+                value={item.quantity}
+                onChange={evt => changeQuantity(evt.target.value)}
+              />
+            </span>
+            <span>Price: ${ item.price }</span>
+            <span>Total: ${ (item.quantity || 1) * item.price }</span>
+          </div>
+          <div className="cart-list__description">
+            <p> { item.shortDescription } </p>
+            <p> { item.seller.name } </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
