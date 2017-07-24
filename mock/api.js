@@ -22,7 +22,7 @@ const createFullItemMock = baseItem => Object.assign({}, baseItem, {
     Sed at vulputate risus, quis placerat massa. Duis venenatis nisi in ipsum bibendum, ut tempor sem tempus.
     Suspendisse pharetra purus vel lectus maximus rhoncus. Fusce felis dolor, lacinia quis nisl ut, pretium interdum nisi.
     Fusce id suscipit ipsum.`,
-  images: [],
+  images: ['https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/abajur_ceramica_tecido_24x11cm_bege_marrom__88474771_0001.jpg_600x600.jpg'],
   aboutSeller: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Etiam in efficitur ex, non porta tellus. Cras id pretium sem, quis blandit dui.`,
 });

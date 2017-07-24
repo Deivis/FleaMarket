@@ -4,6 +4,6 @@ import Main from './Main';
 
 const { addToCart, fetchRequest } = actions;
 
-const mapStateToProps = ({ item }) => ({ ...item });
+const mapStateToProps = ({ item, home }) => ({ ...item, items: home.items });
 
 export default connect(mapStateToProps, { addToCart, getItem: fetchRequest })(Main);

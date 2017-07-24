@@ -55,29 +55,34 @@ class Main extends PureComponent {
           item &&
           <div>
             <div className="item__header">
-              <button onClick={() => this.handleBack()} className="item__button-back" />
+              <button
+                onClick={() => this.handleBack()}
+                className="button--default"
+              >
+                Back to shop
+              </button>
               <h2 className="item_title" >{item.name}</h2>
             </div>
             <div className="item__body">
-              <image className="item__picture" />
+              <img className="item__picture" src={item.images[0]} alt="" />
               <div>
                 <span className="item__price">
                   Price: $ {item.price}
                 </span>
                 <button
                   onClick={() => 'wololo'}
-                  className="item__button-add"
+                  className="button"
                 >
                   Add to cart
                 </button>
                 <div className="item__about-seller">
-                  <h5>About seller {item.seller.name}</h5>
+                  <h4>About seller {item.seller.name}</h4>
                   <p>{item.aboutSeller}</p>
                 </div>
               </div>
             </div>
             <div className="item__product-description">
-              <h5>Product description</h5>
+              <h3>Product description</h3>
               <p>{item.description}</p>
             </div>
           </div>

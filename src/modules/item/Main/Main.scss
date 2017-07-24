@@ -11,6 +11,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  margin-top: 2em;
 }
 
 .item__button-back {
@@ -26,7 +27,7 @@
 .item_title {
   text-align: center;
   font-size: 1.9em;
-  width: 100%;
+  flex-grow: 1;
 }
 
 .item__body {
@@ -43,13 +44,6 @@
   align-items: center;
 }
 
-.item__about-seller {
-  width: 100%;
-  border: 1px solid black;
-  padding: 1em;
-}
-
-
 .item__price {
   font-size: 1.3em;
 }
@@ -65,12 +59,6 @@
 }
 
 .item__product-description {
-  width: auto;
-  border: 1px solid black;
   padding: 1em;
   margin: 1em 0;
-}
-
-.item__product-description > h5 {
-  text-align: center;
 }
