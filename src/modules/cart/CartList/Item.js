@@ -19,10 +19,9 @@ const itemShape = PropTypes.shape({
 const propTypes = {
   item: itemShape.isRequired,
   deleteItem: PropTypes.func.isRequired,
-  changeQuantity: PropTypes.func.isRequired,
 };
 
-const Item = ({ item, deleteItem, changeQuantity }) => (
+const Item = ({ item, deleteItem }) => (
   <div className="cart-list__item">
     <div>
       <div className="cart-list__sumary">
@@ -43,15 +42,6 @@ const Item = ({ item, deleteItem, changeQuantity }) => (
             />
           </div>
           <div className="cart-list__info">
-            <span>Quantity:
-              <input
-                className="cart-list__quantity"
-                type="number"
-                max={item.available}
-                value={item.quantity}
-                onChange={evt => changeQuantity(evt.target.value)}
-              />
-            </span>
             <span>Price: ${ item.price }</span>
             <span>Total: ${ (item.quantity || 1) * item.price }</span>
           </div>

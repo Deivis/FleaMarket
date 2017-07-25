@@ -1,6 +1,5 @@
 const BASE_ACTION = './home';
 export const SELECT_ITEM = `${BASE_ACTION}/SELECT_ITEM`;
-export const ADD_TO_CART = `${BASE_ACTION}/ADD_TO_CART`;
 export const GET_ITEMS = `${BASE_ACTION}/GET_ITEMS`;
 export const RECEIVE_ITEMS = `${BASE_ACTION}/RECEIVE_ITEMS`;
 export const FETCH_REQUEST = `${BASE_ACTION}/FETCH_REQUEST`;

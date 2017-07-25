@@ -23,8 +23,15 @@ const propTypes = {
   getItem: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
   item: itemShape,
-  history: PropTypes.shape({}),
-  match: PropTypes.shape({}),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -37,7 +44,7 @@ class Main extends PureComponent {
 
   componentDidMount() {
     const { item, getItem, match } = this.props;
-    if (!item) {
+    if (!item || item.id !== match.params.id) {
       getItem(match.params.id);
     }
   }
@@ -48,11 +55,11 @@ class Main extends PureComponent {
   }
 
   render() {
-    const { item, isFetching } = this.props;
+    const { item, isFetching, addToCart } = this.props;
     return (
       <div className="item__container">
         {
-          item &&
+          item && !isFetching &&
           <div>
             <div className="item__header">
               <button
@@ -70,7 +77,7 @@ class Main extends PureComponent {
                   Price: $ {item.price}
                 </span>
                 <button
-                  onClick={() => 'wololo'}
+                  onClick={() => addToCart(item)}
                   className="button"
                 >
                   Add to cart
@@ -89,8 +96,8 @@ class Main extends PureComponent {
         }
         {
           isFetching &&
-          <div className="item__loading">
-            <span className="item__loading-icon" />
+          <div className="loading-overlay">
+            <span className="loader" />
           </div>
         }
       </div>

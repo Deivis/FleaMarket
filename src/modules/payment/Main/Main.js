@@ -95,7 +95,13 @@ class Payment extends PureComponent {
     const focused = card.cvc ? 'cvc' : '';
     return (
       <div className="centrilized-content">
-        { true && <div className="payment__orvelay"> Saving payment </div> }
+        {
+          isSubmitting &&
+          <div className="loading-overlay">
+            <div className="loader" />
+            <p>Saving payment</p>
+          </div>
+        }
         {
           summary &&
           <div className="payment">

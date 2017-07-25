@@ -2,7 +2,6 @@ import { handleActions } from 'redux-actions';
 
 import {
   SELECT_ITEM,
-  ADD_TO_CART,
   FETCH_REQUEST,
   RECEIVE_ITEMS,
   FETCH_ERROR_RESPONSE,
@@ -10,7 +9,6 @@ import {
 
 const initialState = {
   items: null,
-  cartItems: [],
   isFetching: {
     items: false,
   },
@@ -21,9 +19,6 @@ const onSelect = (state, { payload }) => Object.assign({}, state, {
   selectedItem: payload,
 });
 
-const onAddToCart = (state, { payload }) => Object.assign({}, state, {
-  cartItems: state.cartItems.concat([payload]),
-});
 
 const fetchRequest = (state, { payload }) => Object.assign({}, state, {
   isFetching: Object.assign({}, state.isFetching, { [payload]: true }),
@@ -42,7 +37,6 @@ const receiveItems = (state, { payload, error }) => Object.assign({}, state, {
 
 const handler = {
   [SELECT_ITEM]: onSelect,
-  [ADD_TO_CART]: onAddToCart,
   [FETCH_REQUEST]: fetchRequest,
   [RECEIVE_ITEMS]: receiveItems,
   [FETCH_ERROR_RESPONSE]: fetchErrorResponse,
