@@ -85,7 +85,7 @@ class CartList extends PureComponent {
           (!items || !items.length) &&
           <div className="cart__empty" >
             <span className="cart__empty-message">
-              No items found
+              Nenhum item encontrado
             </span>
           </div>
         }

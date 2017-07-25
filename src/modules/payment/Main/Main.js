@@ -99,7 +99,7 @@ class Payment extends PureComponent {
           isSubmitting &&
           <div className="loading-overlay">
             <div className="loader" />
-            <p>Saving payment</p>
+            <p>Gerando pagamento</p>
           </div>
         }
         {
@@ -107,13 +107,13 @@ class Payment extends PureComponent {
           <div className="payment">
             <div className="payment__summary">
               <h3> Summary </h3>
-              <span>Customer {summary.name} </span>
+              <span>Comprador {summary.name} </span>
               <span>
-                Address: {summary.address}
+                Endereço: {summary.address}
                 {summary.complement && `, ${summary.complement}`}
               </span>
-              <span>Zip code {summary.zipcode} </span>
-              <h4>Ordered items</h4>
+              <span>CEP {summary.zipcode} </span>
+              <h4>Itens comprados</h4>
               {
                 summary.items && summary.items instanceof Array &&
                 <List items={summary.items} total={summary.total} />
@@ -132,7 +132,7 @@ class Payment extends PureComponent {
                       type="text"
                       component="input"
                       label="Credit card"
-                      placeholder="Card number"
+                      placeholder="Número do cartão"
                       normalize={normalizeCreditCard}
                     />
                     <Field
@@ -140,7 +140,7 @@ class Payment extends PureComponent {
                       type="text"
                       component="input"
                       label="Name"
-                      placeholder="Name in the card"
+                      placeholder="Nome no cartão"
                     />
                     <Field
                       name="cardExpire"
@@ -165,6 +165,12 @@ class Payment extends PureComponent {
                     expiry={card.expiry}
                     cvc={card.cvc}
                     focused={focused}
+                    placeholders={{
+                      name: 'SEU NOME AQUI',
+                    }}
+                    locale={{
+                      valid: 'válido até',
+                    }}
                   />
                 </div>
               }

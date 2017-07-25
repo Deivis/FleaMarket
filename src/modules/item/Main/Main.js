@@ -66,7 +66,7 @@ class Main extends PureComponent {
                 onClick={() => this.handleBack()}
                 className="button--default"
               >
-                Back to shop
+                Voltar
               </button>
               <h2 className="item_title" >{item.name}</h2>
             </div>
@@ -74,22 +74,22 @@ class Main extends PureComponent {
               <img className="item__picture" src={item.images[0]} alt="" />
               <div>
                 <span className="item__price">
-                  Price: $ {item.price}
+                  Preço R${item.price}
                 </span>
                 <button
                   onClick={() => addToCart(item)}
                   className="button"
                 >
-                  Add to cart
+                  Adicionar ao carrinho
                 </button>
                 <div className="item__about-seller">
-                  <h4>About seller {item.seller.name}</h4>
+                  <h4>Sobre o vendedor; {item.seller.name}</h4>
                   <p>{item.aboutSeller}</p>
                 </div>
               </div>
             </div>
             <div className="item__product-description">
-              <h3>Product description</h3>
+              <h3>Descrição do produto</h3>
               <p>{item.description}</p>
             </div>
           </div>

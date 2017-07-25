@@ -34,14 +34,15 @@ const Item = ({ item, selectItem, addToCart }) => (
       </div>
       <div className="item-list__item-description">
         <h4> { item.name } </h4>
-        <span>Price: ${ item.price }</span>
+        <span>Preço: R${ item.price }</span>
         <span>{ item.category }</span>
         <p> { item.shortDescription } </p>
         <div className="item-list__item-footer">
           <button type="button" className="item-list__info" onClick={() => selectItem()}>
-            More info
+            Mais informações
           </button>
           <button
+            title="Adicionar ao carrinho"
             type="button"
             onClick={addToCart}
             className="item-list__cart-icon"

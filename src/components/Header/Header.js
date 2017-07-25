@@ -22,9 +22,19 @@ class Header extends PureComponent {
     const { itemsInCart } = this.props;
     return (
       <header className="header">
-        <button className="header__title" onClick={() => this.handleClick()} >Flea market</button>
+        <button
+          className="header__title"
+          onClick={() => this.handleClick()}
+          title="Ir para página inicial"
+        >
+          Flea market
+        </button>
         <div className="header__cart">
-          <button onClick={() => this.handleClick('/cart')} className="header__cart-button" />
+          <button
+            onClick={() => this.handleClick('/cart')}
+            className="header__cart-button"
+            title="Ir para o carrinho"
+          />
           <span className="header__counter"> { itemsInCart } </span>
         </div>
       </header>

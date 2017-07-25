@@ -14,14 +14,14 @@ const ControllButtons = ({ onBack, onFinish, finishDisabled }) => (
       onClick={onBack}
       className="button--default"
     >
-      Back to shopping
+      Voltar ao início
     </button>
     <button
       onClick={onFinish}
       disabled={finishDisabled}
       className="button"
     >
-      Finish shopping
+      Finalizar compra
     </button>
   </div>
 );
