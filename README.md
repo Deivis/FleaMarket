@@ -26,7 +26,8 @@ To run this project you must have NodeJS(version 6.11.1 or higher) and GIT insta
 
   npm start
 
-* Open the project in a browswer of your choice(IE 9 ou superior) and access the url [https://localhost:3000](https://localhost:3000)
+* Open the project in a browswer of your choice(IE 11 ou superior) and access the url which is in your .env configuration or
+the default([https://localhost:3000](https://localhost:3000))
 
 ## Running the tests
 * Run the following npm command
