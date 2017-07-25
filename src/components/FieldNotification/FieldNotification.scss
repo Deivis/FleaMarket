@@ -1,0 +1,17 @@
+@import '../../styles/_variables';
+
+.field-notification {
+  position: absolute;
+  bottom: -1.4em;
+  font-size: 0.8em;
+  left: 0;
+  padding: 0;
+}
+
+.field-notification--error {
+  color: $error;
+}
+
+.field-notification--warning {
+  color: $warning;
+}

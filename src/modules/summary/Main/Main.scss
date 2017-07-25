@@ -1,0 +1,37 @@
+@import '../../../styles/_variables';
+
+.summary {
+  padding: 2em;
+  background-color: $light-grey;
+  padding: 2em;
+  margin: 2em auto;
+  width: 400px;
+}
+
+.summary__content {
+  margin-bottom: 1em;
+}
+
+.summary__title {
+  border-bottom: 1px solid;
+}
+
+.summary__content > h4 {
+  margin: 1em 0;
+}
+
+.summary__recipient-list {
+  list-style: none;
+}
+
+.summary__recipient {
+  padding: 0.25em 0;
+}
+
+.summary__recipient > span {
+  display: block;
+}
+
+.summary__recipient-name {
+  font-weight: 500;
+}

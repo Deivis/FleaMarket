@@ -1,0 +1,64 @@
+@import '../../../styles/_variables';
+
+.payment__overlay {
+  position: fixed;
+  z-index: 100;
+  opacity: 0.8;
+  background-color: $dark-grey;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment{
+  display: flex;
+  margin: 3em;
+}
+
+.payment__summary {
+  padding: 1em;
+  background-color: $light-grey;
+}
+
+.payment__summary > span {
+  display: block;
+}
+
+.payment__summary >h3 {
+  margin-bottom: 0.5em;
+}
+
+.payment__summary >h4 {
+  margin-top: 1em;
+}
+
+.payment__item-list {
+  list-style: none;
+}
+
+.payment__item {
+  padding: 0.5em;
+}
+
+.payment__item > span {
+  display: block;
+}
+
+.payment__item-total {
+  font-weight: bold;
+}
+
+.payment_card-info {
+  margin-bottom: 1em;
+}
+
+.payment_card-info > input {
+  margin-top: 0.5em;
+}

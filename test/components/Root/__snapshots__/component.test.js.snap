@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Root Tests Root Render 1`] = `
+<div>
+  <div
+    className="overlay__not-found"
+  >
+    <h1>
+       Page not found 
+    </h1>
+  </div>
+  <span
+    className="root__version"
+  >
+    Version 
+    1.0.1
+  </span>
+</div>
+`;

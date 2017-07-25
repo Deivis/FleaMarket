@@ -1,0 +1,24 @@
+@import '../../../styles/_variables';
+
+.checkout__proccess {
+  padding: 2em;
+  flex: 1 0 30%;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: $dark-grey;
+}
+
+.checkout__form {
+  border: 1px solid $classic-grey;
+  border-radius: $main-radius;
+  padding: 1em 3em 2em;
+  flex: 1 0 30%;
+  min-width: 400px;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-y: auto;
+}

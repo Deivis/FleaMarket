@@ -1,0 +1,64 @@
+@import '../../../styles/_variables';
+
+.item__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15em;
+}
+
+.item__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.item__button-back {
+  background-image: $icon-back;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+}
+
+.item_title {
+  text-align: center;
+  font-size: 1.9em;
+  flex-grow: 1;
+}
+
+.item__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item__body > div{
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item__price {
+  font-size: 1.3em;
+}
+
+.item__button-add, .item__price {
+  height: 40px;
+}
+
+.item__picture {
+  min-height: 300px;
+  min-width: 300px;
+  background-color: $light-grey;
+}
+
+.item__product-description {
+  padding: 1em;
+  margin: 1em 0;
+}

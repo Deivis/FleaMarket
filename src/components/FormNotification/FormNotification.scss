@@ -1,0 +1,9 @@
+@import '../../styles/_variables';
+
+.form-notification--error {
+  color: $error;
+}
+
+.form-notification--warning {
+  color: $warning;
+}

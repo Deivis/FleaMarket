@@ -1,0 +1,84 @@
+{
+  "name": "flea-market",
+  "version": "1.0.1",
+  "description": "A shopping cart application for used items using the pagar.me API as a payment service provider",
+  "main": "./index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.prod.js --display-error-details",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deivis/FleaMarket.git"
+  },
+  "keywords": [
+    "pagar.me",
+    "react",
+    "redux",
+    "shoppingcart"
+  ],
+  "author": "Deivis C. W.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Deivis/FleaMarket/issues"
+  },
+  "homepage": "https://github.com/Deivis/FleaMarket#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-async-generators": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.23.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "css-loader": "^0.28.4",
+    "cross-env": "^5.0.1",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "jest": "^20.0.4",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.3",
+    "node-uuid": "^1.4.8",
+    "react-dev-utils": "^3.0.2",
+    "react-test-renderer": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "connected-react-router": "^4.2.3",
+    "pagarme": "^3.1.1",
+    "react": "^15.6.1",
+    "react-credit-cards": "^0.4.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.1",
+    "redux-actions": "^2.2.1",
+    "redux-form": "^7.0.0",
+    "redux-saga": "^0.15.4"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
+  }
+}
