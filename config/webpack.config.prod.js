@@ -11,7 +11,7 @@ const publicPath = `${process.env.APP_NAME || ''}/`;
 const stringEnv = {
   'process.env': Object
     .keys(process.env)
-    .reduce((env, key) => Object.assign({}, env, { [key]: JSON.stringify(process.env[key]) }), {})
+    .reduce((env, key) => Object.assign({}, env, { [key]: JSON.stringify(process.env[key]) }), {}),
 };
 
 const cssFilename = 'static/css/[name].[contenthash:8].css';
