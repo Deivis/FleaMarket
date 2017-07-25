@@ -20,7 +20,7 @@ const List = ({ recipients, total }) => (
             {recipient.name}
           </span>
           <span className="summary__recipient-received">
-            Received: { ((recipient.percentage * total) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }
+            Recebeu: { ((recipient.percentage * total) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }
           </span>
         </li>))
     }

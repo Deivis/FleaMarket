@@ -42,11 +42,13 @@ const Item = ({ item, deleteItem }) => (
             />
           </div>
           <div className="cart-list__info">
-            <span>Price: ${ item.price }</span>
+            <span>Preço: ${ item.price }</span>
             <span>Total: ${ (item.quantity || 1) * item.price }</span>
           </div>
           <div className="cart-list__description">
+            <h5>Descrição do produto:</h5>
             <p> { item.shortDescription } </p>
+            <h5> Vendedor:</h5>
             <p> { item.seller.name } </p>
           </div>
         </div>
