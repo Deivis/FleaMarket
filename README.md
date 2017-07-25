@@ -1,5 +1,6 @@
 # FleaMarket
 A shopping cart application for used items using the pagar.me API as a payment service provider.
+[Example](https://deivis.github.io/FleaMarket/)
 
 This project aims to provide a simple shopping cart for used products which can be viewed with details about it and the seller.
 The buyer will be able to add and remove the products of the cart and finish a purchase using the pagar.me service to pay the choosed items.
