@@ -53,12 +53,12 @@ const createMetadata = (summary) => {
   const { items } = summary;
   const recipients = [
     {
-      name: 'Test me',
+      name: 'Teste eu',
       id: 're_cj5h82l0v028nix6etayc4lng',
       percentage: 25,
     },
     {
-      name: 'My friend',
+      name: 'Teste meu amigo',
       id: 're_cj5h7iwql01tnfw6dqpyym0gc',
       percentage: 15,
     },

@@ -39,11 +39,11 @@ class Summary extends PureComponent {
       <div className="summary">
         { payment &&
           <div>
-            <h3 className="summary__title"> Payment number { payment.id } </h3>
+            <h3 className="summary__title"> Pagamento número { payment.id } </h3>
             { items && recipients &&
               <div className="summary__content">
-                <h4> Total payed R${ total } </h4>
-                <h3> Payables </h3>
+                <h4> Total pago R${ total } </h4>
+                <h3> Recebíveis </h3>
                 <List
                   recipients={recipients}
                   total={total}
@@ -56,7 +56,7 @@ class Summary extends PureComponent {
           className="button"
           onClick={() => history.replace('/')}
         >
-          Return to shop
+          Voltar a loja
         </button>
       </div>
     );

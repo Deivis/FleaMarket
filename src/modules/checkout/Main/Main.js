@@ -40,13 +40,13 @@ class IdentificationFrom extends PureComponent {
     return (
       <div className="checkout centrilized-content">
         <div className="checkout__proccess">
-          Identification
+          Identificação
         </div>
         <form
           onSubmit={handleSubmit(data => onSubmit({ data, summaryId, push: history.push }))}
           className="checkout__form"
         >
-          <label htmlFor="name" className="form__label">Name</label>
+          <label htmlFor="name" className="form__label">Nome</label>
           <Field
             type="text"
             id="name"
@@ -62,7 +62,7 @@ class IdentificationFrom extends PureComponent {
             name="email"
             component={Input}
           />
-          <label htmlFor="phone" className="form__label">Phone</label>
+          <label htmlFor="phone" className="form__label">Telefone</label>
           <Field
             id="phone"
             name="phone"
@@ -72,7 +72,7 @@ class IdentificationFrom extends PureComponent {
             component={Input}
             placeholder="(00) 0000-00000"
           />
-          <label htmlFor="personID" className="form__label">Personal identifier (CPF)</label>
+          <label htmlFor="personID" className="form__label">CPF</label>
           <Field
             id="personID"
             name="personID"
@@ -82,7 +82,7 @@ class IdentificationFrom extends PureComponent {
             component={Input}
             placeholder={maskID}
           />
-          <label htmlFor="birthday" className="form__label">Birthday</label>
+          <label htmlFor="birthday" className="form__label">Data de nascimento</label>
           <Field
             id="birthday"
             name="birthday"
@@ -93,7 +93,7 @@ class IdentificationFrom extends PureComponent {
             placeholder={maskDate}
           />
           <div className="checkout__address">
-            <label htmlFor="address" className="form__label">Address</label>
+            <label htmlFor="address" className="form__label">Endereço</label>
             <Field
               type="text"
               id="address"
@@ -101,7 +101,7 @@ class IdentificationFrom extends PureComponent {
               inputClass="form__input"
               component={Input}
             />
-            <label htmlFor="complement" className="form__label">Complement</label>
+            <label htmlFor="complement" className="form__label">Complemento</label>
             <Field
               type="text"
               id="complement"
@@ -109,7 +109,7 @@ class IdentificationFrom extends PureComponent {
               inputClass="form__input"
               component={Input}
             />
-            <label htmlFor="zipcode" className="form__label">Zip code</label>
+            <label htmlFor="zipcode" className="form__label">CEP</label>
             <Field
               type="text"
               id="zipcode"
@@ -122,7 +122,7 @@ class IdentificationFrom extends PureComponent {
           </div>
           <div className="form__buttons">
             <button className="button" disabled={pristine || submitting} type="submit" >
-              Continue
+              Continuar
             </button>
           </div>
           {error && <FormNotification message={error} type="error" />}
