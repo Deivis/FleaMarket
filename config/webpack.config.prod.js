@@ -101,6 +101,8 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CaseSensitivePathsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      test: /\.js($&#124;\?)/i,
+      extractComments: true,
       compress: {
         screw_ie8: true,
         warnings: false,
