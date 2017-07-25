@@ -19,7 +19,7 @@ const stringfiedEnv = {
 
 module.exports = {
   paths: {
-    appBuild: resolveApp('build'),
+    appBuild: resolveApp(''),
     appPublic: resolveApp('public'),
     appHtml: resolveApp('public/index.html'),
     appIndexJs: resolveApp('src/main.js'),
