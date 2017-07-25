@@ -311,8 +311,10 @@ button {
 
 .cart-list__description > p {
   text-align: left;
-  margin-top: 1em;
   font-size: 15px; }
+
+.cart-list__description > h5 {
+  margin-top: 1em; }
 
 .cart-list__info {
   margin-top: 1em;
