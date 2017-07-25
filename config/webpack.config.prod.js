@@ -23,7 +23,6 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   bail: true,
-  devtool: 'source-map',
   entry: [
     paths.appIndexJs,
   ],
@@ -101,6 +100,19 @@ module.exports = {
     new webpack.DefinePlugin(stringEnv),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CaseSensitivePathsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true,
+        warnings: false,
+      },
+      mangle: {
+        screw_ie8: true,
+      },
+      output: {
+        comments: false,
+        screw_ie8: true,
+      },
+    }),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
     extractSass,
   ],
