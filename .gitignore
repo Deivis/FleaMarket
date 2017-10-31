@@ -60,3 +60,6 @@ typings/
 # local ssl keys
 *.key
 *.cert
+# static files
+./static
+./static/*
