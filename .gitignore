@@ -61,5 +61,5 @@ typings/
 *.key
 *.cert
 # static files
-./static
-./static/*
+static
+static/*
